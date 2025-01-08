@@ -32,10 +32,11 @@ async def reg_user(user: _shemas.UserCreate, session: SessionDep):
         raise HTTPException(status_code=401, detail="This user is already registered")
     else:
         n_user = await _services.create_user(user = user, session = session)
-
+        #user_id = n_user.id
     return _fastapi.HTTPException(
         status_code=201,
-        detail="User Registered!")
+        detail="User Registered!"
+    )
 
 
 # Создание токена
