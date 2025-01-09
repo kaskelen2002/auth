@@ -62,4 +62,5 @@ async def decode_token_and_get_user(request: Request, session: SessionDep):
     user = await _auth.decode_jwt_token_and_get_user(token=token, session=session)
     return user
 
-
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=5003,  reload=True)
